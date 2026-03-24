@@ -4,9 +4,25 @@
 - Project: [PROJECT_NAME]
 - Owner: Eukrit / GO Corporation Co., Ltd.
 - Notion Dashboard: https://www.notion.so/gocorp/Coding-Project-Dashboard-Claude-32c82cea8bb080f1bbd7f26770ae9e80
-- GitHub Repo: [GITHUB_REPO_URL]
-- GCP Project ID: [GCP_PROJECT_ID]
-- Cloud Run Service: [SERVICE_NAME]
+- GitHub Repo: https://github.com/eukrit/[PROJECT_NAME]
+- GCP Project ID: ai-agents-go
+- GCP Project Number: 538978391890
+- Cloud Run Service: [PROJECT_NAME]
+- Region: asia-southeast1
+- Service Account: claude@ai-agents-go.iam.gserviceaccount.com
+- Artifact Registry: asia-southeast1-docker.pkg.dev/ai-agents-go/[PROJECT_NAME]
+- Language: [node|python]
+
+## Related Repos
+- **accounting-automation** (master) — Peak API, Xero, MCP server → `eukrit/accounting-automation`
+- **business-automation** (main) — ERP gateway, shared libs, dashboard → `eukrit/business-automation`
+- Credential files → use `Credentials Claude Code` folder + GCP Secret Manager
+
+## MANDATORY: After every code change
+1. `git add` + `git commit` + `git push origin main`
+2. Cloud Build auto-deploys to Cloud Run — verify build succeeds
+3. Update `eukrit/business-automation` dashboard (`docs/index.html`) if architecture changes
+4. Update `eukrit/business-automation/CHANGELOG.md` with version entry
 
 ## Credentials & Secrets
 

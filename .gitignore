@@ -33,6 +33,16 @@ node_modules/
 npm-debug.log*
 package-lock.json
 
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.egg
+
 # OS
 .DS_Store
 Thumbs.db

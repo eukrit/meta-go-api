@@ -1,6 +1,6 @@
 # Freight & Landed Cost Calculation Guide
 **GO Corporation Co., Ltd. — Import Operations**
-Last updated: 2026-04-02 | Source: Live order data via Shipping Agent
+Last updated: 2026-04-02 | Rates updated from Gift Somlak rate card (2025)
 
 ---
 
@@ -79,11 +79,29 @@ Get fresh quote from Logimark or DHL before using.
 | Last-mile Bangkok delivery | 1–3 days |
 | **Total EXW → project site** | **~14–21 days** |
 
-### Sea LCL Rate Reference
-> Actual per-CBM rates are in Gift's freight invoices (PDF).
-> Request current rate from Gift before quoting.
+### Sea & Land Rate Card (Gift Somlak — Confirmed 2025)
 
-**Confirmed last-mile cost (from Slack):**
+| Mode | Basis | THB Rate | USD Equivalent |
+|---|---|---|---|
+| **Sea freight** | per CBM | **THB 4,600/CBM** | $140.4130/CBM |
+| **Sea freight** | per KG | **THB 35/KG** | $1.0684/KG |
+| **Land freight** | per CBM | **THB 7,200/CBM** | $219.7769/CBM |
+| **Land freight** | per KG | **THB 48/KG** | $1.4652/KG |
+| Delivery: factory → Shenzhen port | per shipment | TBC | Ask Gift/supplier |
+| Oversized length surcharge | per item | TBC | Ask Gift if any dim >250 cm |
+| Customs clearance | per shipment | TBC | Ask Gift |
+
+**Implied FX rate: 32.76 THB/USD** (derived from rate card)
+
+**Billing rule — charge the HIGHER of CBM-based or KGS-based:**
+```
+sea_freight  = max(CBM × 4,600,  actual_kg × 35)
+land_freight = max(CBM × 7,200,  actual_kg × 48)
+```
+Large/light items (high CBM, low weight) → billed on volume.
+Small/heavy items (low CBM, high weight) → billed on weight.
+
+**Confirmed last-mile cost (from Slack #shipping-china-thai):**
 - Standard 4-wheel truck: ~THB 1,500–2,500
 - **Oversized item, 6-wheel truck: THB 3,500** ✓ (confirmed)
 
@@ -196,26 +214,35 @@ Landed cost = EXW price
 
 ---
 
-## 9. ED 70 Folding Door — China (Foshan) → Bangkok Estimate
+## 9. ED 70 Folding Door — China (Foshan) → Bangkok (Recalculated)
 
 **Product:** ED 70 Aluminum Folding Door, 2750 × 2750 mm, export wood crate
-**Trade term:** EXW Foshan
-**Recommended freight route:** Sea LCL via Gift Somlak (Profreight)
+**Trade term:** EXW Foshan | **Mode:** Sea LCL | **HS:** 7610 @ 10% duty
+**Crate:** 285 × 30 × 280 cm = **2.394 CBM** | **Gross weight:** 120 kg
 
-| Component | Estimate | Notes |
-|---|---|---|
-| Sea freight (LCL, Foshan→Bangkok) | THB 2,500–4,500/CBM | Request from Gift — ~2–3 CBM estimated |
-| Customs clearance + port fees | THB 3,000–5,000 | Per Logimark/Profreight standard |
-| Import duty (HS 7610, ~10%) | 10% × CIF value | CIF = EXW + freight + insurance |
-| VAT | 7% × (CIF + duty) | — |
-| Local 6-wheel truck (oversized) | THB 3,500 | Confirmed from Slack |
-| Insurance (Chubb/DHL) | 0.45% × CIF × 110% | Min USD 40 |
-| **Total estimate** | **THB 15,000–25,000** | Get firm quote from Gift first |
+### Billing basis check
+```
+Sea CBM cost: 2.394 CBM × THB 4,600 = THB 11,012.40
+Sea KGS cost: 120 kg   × THB 35     = THB  4,200.00
+→ Billed on CBM (larger) = THB 11,012.40
+```
 
-**Action:** Message Gift in Slack #shipping-china-thai with:
-- Crate dimensions (request from supplier)
-- Gross weight (request from supplier)
-- EXW value in CNY/USD for duty calculation
+### Full landed cost (EXW THB 150,000)
+| Component | Amount |
+|---|---|
+| EXW product price | THB 150,000.00 |
+| Sea freight (CBM basis) | THB 11,012.40 |
+| Insurance (0.45% × CIF × 110%) | THB 1,407.13 |
+| Import duty (10% × CIF) | THB 16,241.95 |
+| VAT (7% × CIF+duty) | THB 12,506.30 |
+| Customs clearance service fee | THB 3,000.00 |
+| Last-mile (6-wheel truck) | THB 3,500.00 |
+| **TOTAL LANDED COST** | **THB 197,667.79** |
+| Min sell price (20% GM) | THB 247,084.74 |
+| At 25% GM | THB 263,557.05 |
+| At 30% GM | THB 282,382.56 |
+
+> **+THB 3,061 vs previous estimate** (was THB 194,606) — difference from updated sea rate: THB 4,600/CBM vs old estimate THB 3,500/CBM
 
 ---
 

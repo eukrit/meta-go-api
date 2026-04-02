@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>China-Thai Freight Agent — GO Corporation</title>
+  <title>China-Thai Freight Agent — GO Corporation (Rates 2025)</title>
   <style>
     :root {
       --charcoal: #252828;
@@ -170,7 +170,24 @@
       <span class="badge warn">Always get fresh quote</span>
     </div>
     <h1>China-Thai Freight Agent — Landed Cost Calculator</h1>
-    <div class="sub">GO Corporation Co., Ltd. &nbsp;·&nbsp; Route: Foshan/Guangzhou → Bangkok &nbsp;·&nbsp; Updated 2026-04-02</div>
+    <div class="sub">GO Corporation Co., Ltd. &nbsp;·&nbsp; Route: Foshan/Guangzhou → Bangkok &nbsp;·&nbsp; Rates: Gift Somlak 2025 &nbsp;·&nbsp; Updated 2026-04-02</div>
+  </div>
+
+  <!-- Rate card banner -->
+  <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:20px;">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--taupe);margin-bottom:10px;">
+      Confirmed Rate Card — Gift Somlak / China-Thai (2025) &nbsp;·&nbsp; Implied FX: 32.76 THB/USD
+    </div>
+    <table style="margin:0;">
+      <tr><th>Mode</th><th>Basis</th><th>THB Rate</th><th>USD Equivalent</th><th>Billing Rule</th></tr>
+      <tr><td><strong>Sea freight</strong></td><td>per CBM</td><td class="bold green">THB 4,600 /CBM</td><td>$140.41 /CBM</td><td rowspan="2" style="vertical-align:middle;color:var(--taupe);font-size:12px;">max(CBM×4600, KG×35)</td></tr>
+      <tr><td><strong>Sea freight</strong></td><td>per KG</td><td class="bold">THB 35 /KG</td><td>$1.0684 /KG</td></tr>
+      <tr><td><strong>Land freight</strong></td><td>per CBM</td><td class="bold">THB 7,200 /CBM</td><td>$219.78 /CBM</td><td rowspan="2" style="vertical-align:middle;color:var(--taupe);font-size:12px;">max(CBM×7200, KG×48)</td></tr>
+      <tr><td><strong>Land freight</strong></td><td>per KG</td><td class="bold">THB 48 /KG</td><td>$1.4652 /KG</td></tr>
+      <tr><td>Factory → Shenzhen port</td><td>per shipment</td><td class="muted">TBC — ask Gift</td><td class="muted">—</td><td class="muted">—</td></tr>
+      <tr><td>Oversized length surcharge</td><td>per item</td><td class="muted">TBC — ask Gift</td><td class="muted">—</td><td class="muted">If any dim &gt;250 cm</td></tr>
+      <tr><td>Customs clearance</td><td>per shipment</td><td class="muted">TBC — ask Gift</td><td class="muted">—</td><td class="muted">—</td></tr>
+    </table>
   </div>
 
   <!-- Metric cards -->
@@ -178,7 +195,7 @@
     <div class="card">
       <div class="card-label">Sea Transit Time</div>
       <div class="card-value">7–10 days</div>
-      <div class="card-note">Guangzhou → Bangkok port</div>
+      <div class="card-note">Guangzhou → Bangkok port (confirmed)</div>
     </div>
     <div class="card">
       <div class="card-label">Total Door-to-Door (Sea EXW)</div>
@@ -186,14 +203,14 @@
       <div class="card-note">Factory → Bangkok delivery address</div>
     </div>
     <div class="card">
-      <div class="card-label">Sea LCL Rate</div>
-      <div class="card-value">THB 2,500–4,500</div>
-      <div class="card-note">Per CBM — request from Gift (Profreight)</div>
+      <div class="card-label">Sea LCL Rate (confirmed 2025)</div>
+      <div class="card-value" style="color:var(--green)">THB 4,600/CBM</div>
+      <div class="card-note">or THB 35/kg — whichever is higher</div>
     </div>
     <div class="card">
-      <div class="card-label">Air Rate (China→BKK est.)</div>
-      <div class="card-value">THB 100–140</div>
-      <div class="card-note">Per chargeable kg — confirm with Logimark/DHL</div>
+      <div class="card-label">Land Freight Rate (confirmed 2025)</div>
+      <div class="card-value">THB 7,200/CBM</div>
+      <div class="card-note">or THB 48/kg — whichever is higher</div>
     </div>
     <div class="card">
       <div class="card-label">HS 9403 Furniture Duty</div>
@@ -344,7 +361,7 @@ min_sell = landed_cost ÷ (1 - margin)
   </div>
 
   <!-- Example calculation -->
-  <h2>Example: ED 70 Aluminum Folding Door (Sea LCL)</h2>
+  <h2>Example: ED 70 Aluminum Folding Door (Sea LCL — Recalculated)</h2>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
     <div>
@@ -359,28 +376,34 @@ min_sell = landed_cost ÷ (1 - margin)
         <tr><td>Gross weight</td><td>120 kg</td></tr>
         <tr><td>Volume (CBM)</td><td class="bold">2.394 CBM</td></tr>
         <tr><td>Freight mode</td><td>Sea LCL</td></tr>
-        <tr><td>Sea rate</td><td>THB 3,500/CBM</td></tr>
-        <tr><td>Insurance</td><td>Yes (Chubb 0.45%)</td></tr>
-        <tr><td>FX rate</td><td>USD 33.50 · EUR 37.40</td></tr>
+        <tr><td>Sea rate (CBM)</td><td class="bold green">THB 4,600/CBM ✓</td></tr>
+        <tr><td>Sea rate (KGS)</td><td>THB 35/KG</td></tr>
+        <tr><td>Billed basis</td><td class="bold">CBM wins (11,012 &gt; 4,200)</td></tr>
+        <tr><td>Insurance</td><td>Chubb 0.45% × CIF × 110%</td></tr>
+        <tr><td>Implied FX</td><td>32.76 THB/USD</td></tr>
       </table>
     </div>
     <div>
-      <h3>Output</h3>
+      <h3>Output (Updated Rates)</h3>
       <div class="example-box">
         <div class="example-header"><span>Cost Component</span><span>Amount</span></div>
         <div class="example-body">
-          <div class="cost-row"><span>EXW product price</span><span>THB 150,000 <span class="cost-pct">(77.1%)</span></span></div>
-          <div class="cost-row"><span>Sea freight (2.394 CBM)</span><span>THB 8,379 <span class="cost-pct">(4.3%)</span></span></div>
-          <div class="cost-row"><span>Cargo insurance</span><span>THB 1,439 <span class="cost-pct">(0.7%)</span></span></div>
-          <div class="cost-row"><span>Import duty (10%)</span><span>THB 15,982 <span class="cost-pct">(8.2%)</span></span></div>
-          <div class="cost-row"><span>VAT (7%)</span><span>THB 12,306 <span class="cost-pct">(6.3%)</span></span></div>
+          <div class="cost-row"><span>EXW product price</span><span>THB 150,000 <span class="cost-pct">(75.9%)</span></span></div>
+          <div class="cost-row"><span>Sea freight (2.394 CBM × 4,600)</span><span>THB 11,012 <span class="cost-pct">(5.6%)</span></span></div>
+          <div class="cost-row"><span>Cargo insurance (Chubb)</span><span>THB 1,407 <span class="cost-pct">(0.7%)</span></span></div>
+          <div class="cost-row"><span>Import duty (10% × CIF)</span><span>THB 16,242 <span class="cost-pct">(8.2%)</span></span></div>
+          <div class="cost-row"><span>VAT (7% × CIF+duty)</span><span>THB 12,506 <span class="cost-pct">(6.3%)</span></span></div>
           <div class="cost-row"><span>Clearance service fee</span><span>THB 3,000 <span class="cost-pct">(1.5%)</span></span></div>
-          <div class="cost-row"><span>Last-mile (6-wheel)</span><span>THB 3,500 <span class="cost-pct">(1.8%)</span></span></div>
-          <div class="cost-row total"><span>TOTAL LANDED COST</span><span>THB 194,606</span></div>
-          <div class="cost-row sell"><span>Min sell price (20% GM)</span><span>THB 243,257</span></div>
-          <div class="cost-row sell"><span>At 25% GM</span><span>THB 259,474</span></div>
-          <div class="cost-row sell"><span>At 30% GM</span><span>THB 278,008</span></div>
+          <div class="cost-row"><span>Last-mile (6-wheel truck)</span><span>THB 3,500 <span class="cost-pct">(1.8%)</span></span></div>
+          <div class="cost-row total"><span>TOTAL LANDED COST</span><span>THB 197,668</span></div>
+          <div class="cost-row sell"><span>Min sell price (20% GM)</span><span>THB 247,085</span></div>
+          <div class="cost-row sell"><span>At 25% GM</span><span>THB 263,557</span></div>
+          <div class="cost-row sell"><span>At 30% GM</span><span>THB 282,383</span></div>
         </div>
+      </div>
+      <div style="margin-top:10px;padding:10px 14px;background:#fef3c7;border-radius:8px;font-size:12px;color:#92400e;">
+        <strong>vs previous estimate (THB 3,500/CBM):</strong><br>
+        Freight: +THB 2,633 &nbsp;|&nbsp; Landed: +THB 3,062 &nbsp;|&nbsp; Min sell: +THB 3,827
       </div>
     </div>
   </div>
@@ -404,13 +427,18 @@ min_sell = landed_cost ÷ (1 - margin)
   <h2>Rate Sources &amp; Data Provenance</h2>
   <table>
     <tr><th>Rate</th><th>Confirmed Value</th><th>Source</th><th>Date</th></tr>
-    <tr><td>Air freight (Italy→BKK, all-in)</td><td>THB 182/kg (base) → THB 214/kg (with fuel+SCC)</td><td>Logimark, PO.1254 Glas Italia</td><td>March 2026</td></tr>
+    <tr><td><strong>Sea freight CBM</strong></td><td class="bold green">THB 4,600/CBM ($140.4130)</td><td>Gift Somlak rate card (China-Thai)</td><td>2025</td></tr>
+    <tr><td><strong>Sea freight KGS</strong></td><td class="bold green">THB 35/KG ($1.0684)</td><td>Gift Somlak rate card (China-Thai)</td><td>2025</td></tr>
+    <tr><td><strong>Land freight CBM</strong></td><td class="bold">THB 7,200/CBM ($219.7769)</td><td>Gift Somlak rate card (China-Thai)</td><td>2025</td></tr>
+    <tr><td><strong>Land freight KGS</strong></td><td class="bold">THB 48/KG ($1.4652)</td><td>Gift Somlak rate card (China-Thai)</td><td>2025</td></tr>
+    <tr><td>Implied FX rate</td><td>32.76 THB/USD</td><td>Derived from rate card (4600÷140.413)</td><td>2025</td></tr>
+    <tr><td>Air freight (Italy→BKK, all-in)</td><td>THB 182/kg base → THB 214/kg with fuel+SCC</td><td>Logimark, PO.1254 Glas Italia</td><td>March 2026</td></tr>
     <tr><td>Air fuel surcharge</td><td>EUR 0.70/kg</td><td>WY airline via Logimark</td><td>March 2026</td></tr>
     <tr><td>Air SCC surcharge</td><td>EUR 0.10/kg</td><td>WY airline via Logimark</td><td>March 2026</td></tr>
     <tr><td>Insurance rate</td><td>0.45% × CIF × 110%, min USD 40</td><td>Chubb via Logimark, PO.1254</td><td>March 2026</td></tr>
     <tr><td>Last-mile oversized</td><td>THB 3,500 (6-wheel truck)</td><td>Slack #shipping-china-thai</td><td>2025–2026</td></tr>
     <tr><td>Sea transit China→BKK</td><td>7–10 days</td><td>Profreight / Slack</td><td>Recurring</td></tr>
-    <tr><td>HS 9403 duty</td><td>20%</td><td>Logimark confirmed PO.1254</td><td>March 2026</td></tr>
+    <tr><td>HS 9403 furniture duty</td><td>20%</td><td>Logimark confirmed PO.1254</td><td>March 2026</td></tr>
   </table>
 
   <!-- Contacts -->

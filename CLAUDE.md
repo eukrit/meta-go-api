@@ -48,6 +48,7 @@ Master instructions: `Credentials Claude Code/Instructions/API Access Master Ins
 | `notion-api-key` | NOTION_API_KEY.md | Notion API |
 | `slack-bot-token` | Slack OAuth.txt | Slack notifications |
 | `figma-token` | Figma Token.txt | Figma API |
+| `stitch-api-key` | Stitch API Key.txt | Stitch Design API |
 | `n8n-webhook-key` | n8n config | n8n webhook auth |
 
 ### Credential File References

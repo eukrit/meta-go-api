@@ -1,7 +1,7 @@
 {
-  "name": "goco-project-template",
+  "name": "meta-go-api",
   "version": "0.1.0",
-  "description": "GO Corporation — Cloud Run project template",
+  "description": "WhatsApp Cloud API webhook server for GO Corporation",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
